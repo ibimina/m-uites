@@ -3,12 +3,12 @@ function Feature({id, image, alt, feature, description,ticked , click}: {id:stri
     <div className={`latest ${ticked?"checked":""}`} onClick={()=>click(id)}>
         <img src={image}alt={alt} />
             <div className={`featured ${ticked ? "checked" : ""}`}>
-            <h2>{feature}</h2>
+            <p>{feature}</p>
             <p className="featured-text">
               {description}
             </p>
         </div>
-        {ticked && <img src="./assets/tick-circle.svg" alt="tick" className="tick" />}
+        {ticked && <img src="./assets/tick-circle.svg" alt="checjed icon" className="tick" />}
     </div>
      );
 }
