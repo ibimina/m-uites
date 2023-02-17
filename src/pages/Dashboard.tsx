@@ -1,8 +1,25 @@
+import { useEffect } from "react";
 import PlaceHolder from "../components/PlaceHolder";
+import { useLogin } from "../context/useLogin";
 
 function DashBoard() {
+    const { state, dispatch } = useLogin()
+    localStorage.setItem("login",JSON.stringify(state))
+    const handleLogout =()=>{
+        dispatch({ type: "LOGOUT" })
+        localStorage.setItem("login", JSON.stringify(state))
+    }
+    useEffect(() => {
+        setInterval(handleLogout,2*60* 1000)
+        localStorage.setItem("login", JSON.stringify(state))
+    }, [])
     return (<main>
         <section className="dashcol-one">
+            <div className="dash-header">
+                <img src="./assets/money.svg" alt="Money app icon" />
+                <button onClick={handleLogout}>Logout</button>
+            </div>
+          
             <div className="com-name">
                 <div className="logo">CN</div>
                 <p>COMPANY NAME</p></div>
