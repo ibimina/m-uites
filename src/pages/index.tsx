@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Feature from "../components/Feature";
+import { useLogin } from "../context/useLogin";
 const features = [
     {
         id: "earnings",
@@ -28,11 +30,14 @@ const features = [
 ]
 function Home() {
     const [featureslog, setFeatureslog] = useState(features);
+    const { state, dispatch } = useLogin()
+    localStorage.setItem("login", JSON.stringify(state))
+    const goTo = useNavigate();
     const showPassword = (e: React.MouseEvent) => {
-        let passInput =e.currentTarget?.previousElementSibling as HTMLInputElement;
-        if(passInput.type === "password"){
+        let passInput = e.currentTarget?.previousElementSibling as HTMLInputElement;
+        if (passInput.type === "password") {
             passInput.type = "text";
-        }else{
+        } else {
             passInput.type = "password";
         }
     }
@@ -44,9 +49,12 @@ function Home() {
             return feature;
         }))
     }
-    
-    const handleLoginForTwoMinutes = (e:React.FormEvent) => {
-    console.log(e)
+
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        dispatch({ type: "LOGIN", payload: true })
+
+        goTo("/dashboard")
     }
     return (
         <main className="home">
@@ -73,16 +81,23 @@ function Home() {
                         <p>Login to your dashboard</p>
                         <p>provide details to login to your account</p>
                     </div>
-                    <form onSubmit={handleLoginForTwoMinutes}>
+                    <form onSubmit={handleLogin}>
                         <label>
                             <span>Email</span>
-                            <input type="email" name="email" className="input-box" required/>
+                            <input type="email" name="email" className="input-box" required
+                                value={state.email}
+                                onChange={(e) => dispatch({ type: "EMAIL", payload: e.target.value })}
+                            />
                         </label>
                         <label>
                             <span>Password</span>
                             <div className="pass-con">
-                                <input type="password" name="password" className="input-box pass" required/>
-                                <img src="./assets/eye.svg" alt="" className="eye" onClick={showPassword} />
+                                <input type="password" name="password" className="input-box pass" required
+                                    value={state.password}
+                                    onChange={(e) => dispatch({ type: "PASSWORD", payload: e.target.value })}
+                                />
+                                <img src="./assets/eye.svg" alt="" className="eye"
+                                    onClick={showPassword} />
                             </div>
                         </label>
                         <input type="submit" value="Login" className="submit" />
@@ -95,3 +110,7 @@ function Home() {
 }
 
 export default Home;
+// function useLoginContext(): { login: any; email: any; password: any; dispatch: any; } {
+//     throw new Error("Function not implemented.");
+// }
+
