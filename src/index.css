@@ -1,0 +1,24 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,.App,#root {
+  width: 100%;
+  min-height: 100vh;
+  font-size: 16px;
+   font-family: 'Manrope';
+   font-style: normal;
+   line-height: 25px;
+}
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  display: block;
+  width: 100%;
+}
