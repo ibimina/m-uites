@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 3em;
+  padding: 1em;
   border: 0.7px solid #dce2ea;
 }
 .logout {
@@ -16,14 +16,6 @@
 }
 .logout:hover {
   color: #1cc578;
-}
-.company {
-  margin-top: 1em;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 60% 30%;
-  gap: 2em;
-  height: 70vh;
 }
 .dashcol-one {
   padding: 3em 4em;
@@ -39,14 +31,14 @@
 .name {
   margin-bottom: 1em;
 }
-.name-title{
-    color: #858585;
-    font-weight: 400;
-font-size: 12px;
-line-height: 19px;
+.name-title {
+  color: #858585;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
 }
-.name-txt{
-    color: #1A1A1A;
+.name-txt {
+  color: #1a1a1a;
 }
 .logo {
   width: 50px;
@@ -63,7 +55,7 @@ line-height: 19px;
 .dashclo-two {
   background: #f7f7f7;
   border-radius: 12px;
-  padding: 3em 1em;
+  padding: 2em 1em;
 }
 .coming-soon {
   background: #feebee;
@@ -73,6 +65,7 @@ line-height: 19px;
   padding: 0.5em;
   width: fit-content;
   margin-bottom: 1em;
+  gap: 0.5em;
 }
 .placeholders {
   background: #ffffff;
@@ -118,4 +111,28 @@ line-height: 19px;
 }
 .noti-text {
   color: #595959;
+}
+@media (min-width: 30rem) {
+  .company {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: auto;
+    gap: 2em;
+    padding: 2em;
+  }
+}
+@media (min-width: 60rem) {
+  .dash-header {
+    padding: 0.5em 3em;
+  }
+  .company {
+    margin-top: 0.5em;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: none;
+    gap: 2em;
+    height: 80vh;
+    padding: 1em 4em;
+  }
 }
