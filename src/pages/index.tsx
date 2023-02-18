@@ -53,7 +53,7 @@ function Home() {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         dispatch({ type: "LOGIN", payload: true })
-
+        localStorage.setItem("login", JSON.stringify(state))
         goTo("/dashboard")
     }
     return (
