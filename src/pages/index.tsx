@@ -60,7 +60,7 @@ function Home() {
         <main className="home">
             <section className="col-one">
                 <div className="ft-wrap">
-                    <img src="./assets/money.svg" alt="Money app icon" />
+                    <img src="./assets/money.svg" alt="Money app icon" className="icon"/>
                     <div className="title-wrap">
                         <h1 className="title">Hi there, see what's new</h1>
                         <p className="sub-title">

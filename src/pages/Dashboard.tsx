@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import PlaceHolder from "../components/PlaceHolder";
 import { useLogin } from "../context/useLogin";
 import "./dashboard.css";
@@ -14,7 +14,7 @@ const query = `
     }
 `;
 
-type CompanyProps ={
+type CompanyProps = {
     company: {
         ceo: string
         cto: string
@@ -22,9 +22,9 @@ type CompanyProps ={
     }
 }
 function DashBoard() {
-    const {  dispatch } = useLogin()
-    const [company, setCompany] = useState<null|CompanyProps>(null)
-   
+    const { dispatch } = useLogin()
+    const [company, setCompany] = useState<null | CompanyProps>(null)
+
     useEffect(() => {
         const fetchCompany = async () => {
             const res = await fetch(baseUrl, {
@@ -38,13 +38,12 @@ function DashBoard() {
             setCompany(data.data)
         }
         fetchCompany()
-   
+
     }, [baseUrl, query])
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })
     }
     useEffect(() => {
-      
         setInterval(handleLogout, 2 * 60 * 1000)
     }, [])
     return (
@@ -56,13 +55,13 @@ function DashBoard() {
             <div className="company">
                 <section className="dashcol-one">
                     <div className="com-name">
-                        <div className="logo">{company?.company?.name.slice(0,2).toUpperCase()}</div>
+                        <div className="logo">{company?.company?.name.slice(0, 2).toUpperCase()}</div>
                         <p>{company?.company?.name.toUpperCase()}</p>
                     </div>
                     <div className="name">
                         <p className="name-title">CEO</p>
-                      <p className="name-txt">{company?.company?.ceo}</p>
-                        
+                        <p className="name-txt">{company?.company?.ceo}</p>
+
                     </div>
                     <div className="name">
                         <p className="name-title">CTO</p>
