@@ -1,55 +1,61 @@
 import { useEffect } from "react";
 import PlaceHolder from "../components/PlaceHolder";
 import { useLogin } from "../context/useLogin";
+import "./dashboard.css";
 
 function DashBoard() {
     const { state, dispatch } = useLogin()
-    localStorage.setItem("login",JSON.stringify(state))
-    const handleLogout =()=>{
+    localStorage.setItem("login", JSON.stringify(state))
+    const handleLogout = () => {
         dispatch({ type: "LOGOUT" })
-        localStorage.setItem("login", JSON.stringify(state))
     }
     useEffect(() => {
-        setInterval(handleLogout,2*60* 1000)
-        localStorage.setItem("login", JSON.stringify(state))
+        setInterval(handleLogout, 2 * 60 * 1000)
     }, [])
-    return (<main>
-        <section className="dashcol-one">
+    return (
+        <main className="dash-wrapper">
             <div className="dash-header">
                 <img src="./assets/money.svg" alt="Money app icon" />
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} className="logout">Logout</button>
             </div>
-          
-            <div className="com-name">
-                <div className="logo">CN</div>
-                <p>COMPANY NAME</p></div>
-            <div className="name">
-                <p>CEO</p>
-                <p>CEONAME</p>
-            </div>
-            <div>
-                <p>CTO</p>
-                <p>CTO NAME</p>
+            <div className="company">
+                <section className="dashcol-one">
+                    <div className="com-name">
+                        <div className="logo">CN</div>
+                        <p>COMPANY NAME</p>
+                    </div>
+                    <div className="name">
+                        <p className="name-title">CEO</p>
+                        <p className="name-txt">CEONAME</p>
+                    </div>
+                    <div className="name">
+                        <p className="name-title">CTO</p>
+                        <p className="name-txt">CTO NAME</p>
+                    </div>
+
+                </section>
+                <section className="dashclo-two">
+                    <div>
+                        <div className="coming-soon">
+                            <img src="./assets/timer.svg" alt="clock icon" /> <span>Coming soon</span>
+                        </div>
+
+                        <div className="placeholders">
+                            <PlaceHolder emoji="🎉" />
+                            <PlaceHolder emoji="✨" />
+                            <PlaceHolder emoji="💥" />
+                        </div>
+                        <div className="notification">
+                            <p className="noti-title"> 📫Notifications</p>
+                            <p className="noti-text">Receive notifcations about your rider performance, efficiency reviews and a lot more</p>
+
+                        </div>
+
+                    </div>
+                </section>
             </div>
 
-        </section>
-        <section className="dashclo-two">
-            <div className="comming-soon">
-                <img src="./assets/timer.svg" alt="" /> <span>Coming soon</span>
-            </div>
-
-            <div className="placeholders">
-                <PlaceHolder emoji="🎉" />
-                <PlaceHolder emoji="✨" />
-                <PlaceHolder emoji="💥" />
-            </div>
-            <div>
-                <p> 📫Notifications</p>
-                <p>Receive notifcations about your rider performance, efficiency reviews and a lot more</p>
-
-            </div>
-        </section>
-    </main>);
+        </main>);
 }
 
 export default DashBoard;
