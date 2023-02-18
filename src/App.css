@@ -129,6 +129,9 @@
   top: 0.5em;
   cursor: pointer;
 }
+.eye:hover{
+  filter: brightness(1%);
+}
 @media (min-width:30rem){
 .home{
   display: grid;
