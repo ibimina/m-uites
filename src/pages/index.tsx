@@ -68,18 +68,17 @@ function Home() {
                             your riders are efficient
                         </p>
                     </div>
-
-                    {featureslog.map((feature, index) => (<Feature key={index} {...feature} click={handleTick} />))
+                    {featureslog.map((feature, index) => 
+                    (<Feature key={index} {...feature} click={handleTick} />))
                     }
-
                 </div>
 
             </section>
             <section className="col-two">
                 <div className="login">
                     <div className="logtext">
-                        <p>Login to your dashboard</p>
-                        <p>provide details to login to your account</p>
+                        <p className="login-now">Login to your dashboard</p>
+                        <p className="inst">Provide details to login to your account</p>
                     </div>
                     <form onSubmit={handleLogin}>
                         <label>
@@ -110,7 +109,3 @@ function Home() {
 }
 
 export default Home;
-// function useLoginContext(): { login: any; email: any; password: any; dispatch: any; } {
-//     throw new Error("Function not implemented.");
-// }
-
