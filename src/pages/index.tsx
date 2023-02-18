@@ -37,7 +37,7 @@ function Home() {
         let passInput = e.currentTarget?.previousElementSibling as HTMLInputElement;
         if (passInput.type === "password") {
             passInput.type = "text";
-            document.querySelector(".eye")?.setAttribute("src", "./assets/icon8-hide.png")
+            document.querySelector(".eye")?.setAttribute("src", "./assets/icons8-hide.png")
         } else {
             passInput.type = "password";
             document.querySelector(".eye")?.setAttribute("src", "./assets/eye.svg")
