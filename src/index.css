@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
 *,
 *::after,
 *::before {
@@ -5,20 +6,17 @@
   padding: 0;
   box-sizing: border-box;
 }
-body,.App,#root {
+body,
+.App,
+#root {
   width: 100%;
   min-height: 100vh;
   font-size: 16px;
-   font-family: 'Manrope';
-   font-style: normal;
-   line-height: 25px;
+  font-family: "Manrope", sans-serif;
+  font-style: normal;
+  line-height: 25px;
 }
-.App{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-input{
+input {
   display: block;
   width: 100%;
 }
