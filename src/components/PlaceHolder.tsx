@@ -3,10 +3,13 @@ function placeholder({ emoji }: { emoji: string }) {
         <div className="placeholder-img">
             <span>{emoji}</span>
         </div>
-        <div className="placeholder-longtext">
+        <div className="loading">
+            <div className="placeholder-longtext text">
+            </div>
+            <div className="placeholder-shorttext text">
+            </div>
         </div>
-        <div className="placeholder-shorttext">
-        </div>
+        
     </div>);
 }
 
