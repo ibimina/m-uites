@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import PlaceHolder from "../components/PlaceHolder";
 import { useLogin } from "../context/useLogin";
 import "./dashboard.css";
@@ -23,9 +23,9 @@ type CompanyProps = {
 }
 function DashBoard() {
     const { dispatch } = useLogin()
-    const [company, setCompany] = useState<null | CompanyProps>(null)
+    const [company, setCompany] = React.useState<null | CompanyProps>(null)
 
-    useEffect(() => {
+    React.useEffect(() => {
         const fetchCompany = async () => {
             const res = await fetch(baseUrl, {
                 method: "POST",
@@ -43,7 +43,7 @@ function DashBoard() {
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })
     }
-    useEffect(() => {
+    React.useEffect(() => {
         setInterval(handleLogout, 2 * 60 * 1000)
     }, [])
     return (

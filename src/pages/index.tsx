@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Feature from "../components/Feature";
 import { useLogin } from "../context/useLogin";
@@ -29,12 +29,12 @@ const features = [
     }
 ]
 function Home() {
-    const [featureslog, setFeatureslog] = useState(features);
+    const [featureslog, setFeatureslog] = React.useState(features);
     const { state, dispatch } = useLogin()
     localStorage.setItem("login", JSON.stringify(state))
     const goTo = useNavigate();
     const showPassword = (e: React.MouseEvent) => {
-        let passInput = e.currentTarget?.previousElementSibling as HTMLInputElement;
+        const passInput = e.currentTarget?.previousElementSibling as HTMLInputElement;
         if (passInput.type === "password") {
             passInput.type = "text";
             document.querySelector(".eye")?.setAttribute("src", "./assets/icons8-hide.png")
@@ -65,7 +65,7 @@ function Home() {
                 <div className="ft-wrap">
                     <img src="./assets/money.svg" alt="Money app icon" className="icon"/>
                     <div className="title-wrap">
-                        <h1 className="title">Hi there, see what's new</h1>
+                        <h1 className="title">Hi there, see what{"'"}s new</h1>
                         <p className="sub-title">
                             Here’s how Foodcourt helps you manage your daily operations and ensure
                             your riders are efficient

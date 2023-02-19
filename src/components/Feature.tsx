@@ -1,3 +1,4 @@
+import React from "react";
 function Feature({id, image, alt, feature, description,ticked , click}: {id:string,image: string, alt: string, feature: string, description: string,ticked: boolean, click: (index: string) => void}) {
     return (
     <div className={`latest ${ticked?"checked":""}`} onClick={()=>click(id)}>

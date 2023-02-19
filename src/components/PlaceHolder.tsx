@@ -1,3 +1,4 @@
+import React from "react";
 function placeholder({ emoji }: { emoji: string }) {
     return (<div className="placeholder">
         <div className="placeholder-img">
